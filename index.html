@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Loginauthentication</title>
+  <meta name="description" contents="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+
+  <style>
+    .stort{
+      background-color: #8b8a8a;
+      margin: auto;
+      margin-top: 150px;
+      height: 180px;
+      width: 300px;
+      border: 1px;
+      padding: 10px;
+      border-radius: 40px;
+      text-align: center;
+      
+    }
+
+    .heading2{
+      margin-top: 50px;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      padding-top: 25px;
+
+    }
+
+    .heading3{
+      color: black;
+    }
+
+    .heading4{
+      color: white;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert.dismissible fade show" role="alert">
+  <strong>Message:</strong>   {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>  
+  </button>
+  </div>
+  {% endfor %}
+
+  <div class="stort">
+  <h3 class="heading2">Welcome to this Log In page</h3>
+
+  {% if user.is_authenticated %}
+  <h3 class="heading4">Hello there</h3>
+  <h4 class="heading3">You're succesfully logged in.</h4> 
+  <button type="submit"><a href="/signout"> SignOut</a></button>
+
+  {% else %}
+  <button type="submit"><a href="/signup"> SignUp </a> </button>
+  <button type="submit"><a href="/signin"> SignIn</a></button>
+  {% endif %}
+  </div>
+  
+  
+</body>
+</html>
